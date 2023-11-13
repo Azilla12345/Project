@@ -3,7 +3,4 @@ public class Main {
         projectRunner game = new projectRunner();
         game.runGame();
     }
-
-
-
 }
