@@ -28,6 +28,7 @@ public class Player {
     public void attacked(int damage) {
         if (guardUp) {
             System.out.println("Attack was blocked!");
+            guardUp = false;
         } else {
             health -= damage;
             System.out.println("Attack hits with " + damage + " damage!");
