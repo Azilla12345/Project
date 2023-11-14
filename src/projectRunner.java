@@ -3,7 +3,9 @@ import java.util.Scanner;
 public class projectRunner {
     Scanner myScanner = new Scanner(System.in);
     int players;
+    int action;
     boolean answer = false;
+    boolean gameRunning = true;
     Player player1 = new Player();
     Player player2 = new Player();
     public void runGame() {
@@ -34,7 +36,12 @@ public class projectRunner {
             player2.setName(myScanner.nextLine());
             System.out.println(player2.name);
         }
-        myScanner.nextLine();
+
+
+        while (gameRunning) {
+            System.out.println("Pick action: ");
+            action = myScanner.nextInt();
+        }
 
 
 
