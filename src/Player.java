@@ -21,4 +21,17 @@ public class Player {
         System.out.print(name + " does " + (int)(Math.random()*4) + " damage!");
     }
 
+    public void guard() {
+        guardUp = true;
+    }
+
+    public void attacked(int damage) {
+        if (guardUp) {
+            System.out.println("Attack was blocked!");
+        } else {
+            health -= damage;
+            System.out.println("Attack hits with " + damage + " damage!");
+        }
+    }
+
 }
