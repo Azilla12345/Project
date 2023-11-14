@@ -34,6 +34,10 @@ public class projectRunner {
             player2.setName(myScanner.nextLine());
             System.out.println(player2.name);
         }
+        myScanner.nextLine();
+
+
+
 
 
     }
