@@ -4,7 +4,6 @@ public class projectRunner {
     Scanner myScanner = new Scanner(System.in);
     int players;
     int action;
-    int floors = 0;
     boolean answer = false;
     boolean gameRunning = true;
     Player player1 = new Player();
@@ -38,10 +37,19 @@ public class projectRunner {
             System.out.println("Player 2: " + player2.name);
         }
 
+        int floors = 0;
+        int moves = 0;
+
 
         while (gameRunning) {
-            System.out.println("Pick action: ");
-            action = myScanner.nextInt();
+            if ((moves == 5) || (player1.health == 0)) {
+                gameRunning = false;
+            } else {
+                System.out.println("Pick action: ");
+                action = myScanner.nextInt();
+                player1.action(action);
+                moves ++;
+            }
         }
 
 

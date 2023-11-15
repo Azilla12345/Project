@@ -23,6 +23,16 @@ public class Player {
         guardUp = true;
     }
 
+    public void action(int action) {
+        if (action == 1) {
+            attack();
+        } else if (action == 2) {
+            guard();
+        } else {
+            System.out.println("Invalid action!");
+        }
+    }
+
     public void attacked(int damage) {
         if (guardUp) {
             System.out.println("Attack was blocked!");
