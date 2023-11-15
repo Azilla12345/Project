@@ -4,6 +4,7 @@ public class projectRunner {
     Scanner myScanner = new Scanner(System.in);
     int players;
     int action;
+    int floors = 0;
     boolean answer = false;
     boolean gameRunning = true;
     Player player1 = new Player();
@@ -29,12 +30,12 @@ public class projectRunner {
 
         System.out.print("What do you call yourself?: ");
         player1.setName(myScanner.nextLine());
-        System.out.println(player1.name);
+        System.out.println("Player 1: " + player1.name);
 
         if (players == 2) {
             System.out.print("Player 2, what do you call yourself?: ");
             player2.setName(myScanner.nextLine());
-            System.out.println(player2.name);
+            System.out.println("Player 2: " + player2.name);
         }
 
 
