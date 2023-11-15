@@ -25,8 +25,6 @@ public class projectRunner {
         }
         myScanner.nextLine();
 
-
-
         System.out.print("What do you call yourself?: ");
         player1.setName(myScanner.nextLine());
         System.out.println("Player 1: " + player1.name);
@@ -39,20 +37,27 @@ public class projectRunner {
 
         int floors = 0;
         int moves = 0;
+        boolean inRound = false;
 
 
         while (gameRunning) {
-            if ((moves == 5) || (player1.health == 0)) {
-                gameRunning = false;
+            if (inRound) {
+                if ((moves == 5) || (player1.health == 0)) {
+                    gameRunning = false;
+                } else {
+                    System.out.print("Pick action: ");
+                    action = myScanner.nextInt();
+                    player1.action(action);
+                    moves++;
+                }
             } else {
-                System.out.println("Pick action: ");
-                action = myScanner.nextInt();
-                player1.action(action);
-                moves ++;
+                floors++;
+                moves = 0;
+                inRound = true;
             }
         }
 
-
+        System.out.println("You got to floor " + floors);
 
 
 
