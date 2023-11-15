@@ -36,7 +36,7 @@ public class projectRunner {
         }
 
         int floors = 0;
-        int moves = 0;
+        int moves = 1;
         boolean inRound = false;
 
 
