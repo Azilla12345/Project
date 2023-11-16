@@ -5,7 +5,7 @@ public class Player {
     boolean guardUp = false;
     String name = "";
 
-    public void player() { }
+    public Player() { }
 
     public void setName(String name) {
         this.name = name;

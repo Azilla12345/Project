@@ -4,6 +4,9 @@ public class projectRunner {
     Scanner myScanner = new Scanner(System.in);
     int players;
     int action;
+
+    Floors floor = new Floors(0);
+
     boolean answer = false;
     boolean gameRunning = true;
     Player player1 = new Player();
@@ -35,9 +38,10 @@ public class projectRunner {
             System.out.println("Player 2: " + player2.name);
         }
 
-        int floors = 0;
+
         int moves = 1;
         boolean inRound = false;
+        int enemies = 0;
 
 
         while (gameRunning) {
@@ -45,19 +49,22 @@ public class projectRunner {
                 if ((moves == 5) || (player1.health == 0)) {
                     gameRunning = false;
                 } else {
+                    while (enemies != (int)(Math.random()*3) + 1) {
+                        Enemy enemy = new Enemy(floor);
+                    }
                     System.out.print("Pick action: ");
                     action = myScanner.nextInt();
                     player1.action(action);
                     moves++;
                 }
             } else {
-                floors++;
+                floor.addFloor();
                 moves = 0;
                 inRound = true;
             }
         }
 
-        System.out.println("You got to floor " + floors);
+        System.out.println("You got to floor " + floor.getFloor());
 
 
 
