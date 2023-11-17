@@ -41,7 +41,7 @@ public class projectRunner {
 
         int moves = 1;
         boolean inRound = false;
-        int enemies = 0;
+        int enemies = 1;
 
 
         while (gameRunning) {
@@ -49,18 +49,24 @@ public class projectRunner {
                 if ((moves == 5) || (player1.health == 0)) {
                     gameRunning = false;
                 } else {
-                    while (enemies != (int)(Math.random()*3) + 1) {
+                    while (enemies != (int)(Math.random()*(1+ floor.getFloor()) + 1)) {
                         Enemy enemy = new Enemy(floor);
+                        enemies++;
+                        int damage = (int) (enemy.attack());
+                        player1.attacked(damage);
                     }
+
                     System.out.print("Pick action: ");
                     action = myScanner.nextInt();
                     player1.action(action);
                     moves++;
+
                 }
             } else {
                 floor.addFloor();
                 moves = 0;
                 inRound = true;
+                enemies = 0;
             }
         }
 
