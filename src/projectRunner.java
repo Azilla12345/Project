@@ -49,7 +49,7 @@ public class projectRunner {
                 if ((moves == 5) || (player1.health == 0)) {
                     gameRunning = false;
                 } else {
-                    while (enemies != (int)(Math.random()*(1+ floor.getFloor()) + 1)) {
+                    while (enemies <= (int)(Math.random()*(2 + floor.getFloor()) + 1)) {
                         Enemy enemy = new Enemy(floor);
                         enemies++;
                         int damage = (int) (enemy.attack());

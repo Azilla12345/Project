@@ -16,7 +16,9 @@ public class Enemy {
         return damage;
     }
 
-    public void boss() {
-
+    public void action() {
+        attack();
     }
+
+
 }
