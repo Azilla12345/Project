@@ -41,7 +41,7 @@ public class projectRunner {
 
         int moves = 1;
         boolean inRound = false;
-        int enemies = 1;
+        Enemy enemy = new Enemy(floor);
 
 
         while (gameRunning) {
@@ -49,24 +49,26 @@ public class projectRunner {
                 if ((moves == 5) || (player1.health == 0)) {
                     gameRunning = false;
                 } else {
-                    while (enemies <= (int)(Math.random()*(2 + floor.getFloor()) + 1)) {
-                        Enemy enemy = new Enemy(floor);
-                        enemies++;
-                        int damage = (int) (enemy.attack());
-                        player1.attacked(damage);
-                    }
 
-                    System.out.print("Pick action: ");
+                    System.out.print("Pick action: 1.Attack, 2. Guard:  ");
                     action = myScanner.nextInt();
                     player1.action(action);
+                    if (action == 1) {
+                        enemy.attacked(player1.attack());
+                    }
                     moves++;
+                    if (enemy.isDead()) {
+                        inRound = false;
+                    }
+                    player1.attacked(enemy.attack());
 
                 }
             } else {
                 floor.addFloor();
+                System.out.println("Moving to floor " + floor.getFloor());
                 moves = 0;
                 inRound = true;
-                enemies = 0;
+                enemy.standard();
             }
         }
 

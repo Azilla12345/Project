@@ -2,18 +2,30 @@ public class Enemy {
     private Floors floor;
     double damage;
 
+    int enemyHealth;
+
     public Enemy(Floors floors) {
         floor = floors;
     };
 
 
     public void standard() {
-        int enemyHealth = 100 + (2 * floor.getFloor() );
-        damage = 1 + 0.5 * floor.getFloor();
+        enemyHealth = 10 + (2 * floor.getFloor() );
+        damage = 1 + (0.5 * floor.getFloor());
     }
 
-    public double attack() {
-        return damage;
+    public int attack() {
+        return (int)(damage);
+    }
+
+    public void attacked(int damage) {
+        enemyHealth = enemyHealth - damage;
+        System.out.println("Enemy attacked for " + damage + " damage");
+        System.out.println("Enemy health remaining: " + enemyHealth);
+    }
+
+    public boolean isDead () {
+        return enemyHealth <= 0;
     }
 
     public void action() {

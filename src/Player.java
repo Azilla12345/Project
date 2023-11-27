@@ -1,30 +1,72 @@
-
+/**
+ * This class is the player's class
+ *
+ * @author Hayden Mak
+ * @author Ryan Chan
+ */
 
 public class Player {
-    int health = 100;
-    boolean guardUp = false;
-    String name = "";
+    /** The health of the player */
+    int health;
+    /** whether the players guard is up */
+    boolean guardUp;
 
-    public Player() { }
+    /** the player's name */
+    String name;
+    /** the player's damage*/
+    int damage;
+
+    /**
+     * Instantiates a player object
+     */
+    public Player() {
+        name = "";
+        health = 100;
+        guardUp = false;
+    }
+
+
+    /**
+     * Sets the players name
+     * @param name name
+     */
 
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Returns the players health
+     * @return health
+     */
+
     public int getHealth() {
         return health;
     }
 
-    public void attack() {
-        System.out.print(name + " does " + (int)(Math.random()*4) + " damage!");
+    /**
+     * Player's attack
+     * @return attack
+     */
+    public int attack() {
+        damage = 5;
+        return damage;
     }
 
+    /**
+     * Set's the guardUp as a true
+     */
     public void guard() {
         guardUp = true;
     }
 
+    /**
+     * Attacks if action is 1, guards if action is 2
+     * @param action
+     */
     public void action(int action) {
         if (action == 1) {
+            System.out.println(name + " attacks for " + damage + " damage");
             attack();
         } else if (action == 2) {
             guard();
@@ -33,13 +75,17 @@ public class Player {
         }
     }
 
+    /**
+     * If guard is up, attack gets blocked, otherwise the player loses "damage" worth of health points
+     * @param damage
+     */
     public void attacked(int damage) {
         if (guardUp) {
             System.out.println("Attack was blocked!");
             guardUp = false;
         } else {
             health -= damage;
-            System.out.println("Attack hits with " + damage + " damage!");
+            System.out.println("Attacked with " + damage + " damage!");
         }
     }
 
