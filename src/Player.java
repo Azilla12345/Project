@@ -15,6 +15,8 @@ public class Player {
     String name;
     /** the player's damage*/
     int damage;
+    int damageBuff;
+
 
     /**
      * Instantiates a player object
@@ -23,6 +25,7 @@ public class Player {
         name = "";
         health = 100;
         guardUp = false;
+        damageBuff = 0;
     }
 
 
@@ -49,7 +52,7 @@ public class Player {
      * @return attack
      */
     public int attack() {
-        damage = 5;
+        damage = (int)(Math.random() * (11 + damageBuff)) + 1;
         return damage;
     }
 
@@ -66,13 +69,21 @@ public class Player {
      */
     public void action(int action) {
         if (action == 1) {
-            System.out.println(name + " attacks for " + damage + " damage");
             attack();
+            System.out.println(name + " attacks for " + damage + " damage");
         } else if (action == 2) {
             guard();
         } else {
             System.out.println("Invalid action!");
         }
+    }
+
+    public void healthBuff(int upgrade) {
+        health += upgrade;
+    }
+
+    public void DamageBuff(int upgrade) {
+        damageBuff += upgrade;
     }
 
     /**

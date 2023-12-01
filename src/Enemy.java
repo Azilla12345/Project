@@ -14,6 +14,11 @@ public class Enemy {
         damage = 1 + (0.5 * floor.getFloor());
     }
 
+    public void boss() {
+        enemyHealth = 50 + (int) (1.2 * floor.getFloor());
+        damage = 5 + (2 * floor.getFloor());
+    }
+
     public int attack() {
         return (int)(damage);
     }
@@ -28,9 +33,6 @@ public class Enemy {
         return enemyHealth <= 0;
     }
 
-    public void action() {
-        attack();
-    }
 
 
 }
