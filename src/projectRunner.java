@@ -45,6 +45,9 @@ public class projectRunner {
         Enemy boss = new Enemy(floor);
 
         while (gameRunning) {
+            for(int i = 0; i <= 10; i++) {
+                System.out.println("Loading...");
+            }
             if (inRound) {
                 if ((moves == 5) || (player1.health <= 0)) {
                     gameRunning = false;
@@ -76,7 +79,8 @@ public class projectRunner {
                 }
             } else {
                 floor.addFloor();
-                System.out.println("Moving to floor " + floor.getFloor());
+                System.out.println("Moving to floor " + floor.getFloor() + "\n");
+
                 moves = 0;
                 if (floor.getFloor()%5 == 0) {
                     System.out.print("Welcome to the shop, what upgrade do you want to purchase?: 1 - +2 attack multiplier, 2 - +10 hp");

@@ -1,12 +1,18 @@
 public class Enemy {
     private Floors floor;
     double damage;
+    boolean boss;
 
     int enemyHealth;
 
     public Enemy(Floors floors) {
         floor = floors;
-    };
+    }
+
+    public Enemy (Floors floors, boolean boss) {
+        floor = floors;
+        this.boss = boss;
+    }
 
 
     public void standard() {

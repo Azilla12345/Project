@@ -28,6 +28,13 @@ public class Player {
         damageBuff = 0;
     }
 
+    private Player (String name) {
+        this.name = name;
+        health = 100;
+        guardUp = false;
+
+    }
+
 
     /**
      * Sets the players name
